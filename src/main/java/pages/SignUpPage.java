@@ -1,5 +1,12 @@
+package pages;
 
-import com.codeborne.selenide.*;
+
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -12,6 +19,8 @@ import static org.openqa.selenium.By.xpath;
 /**
  * Created by Sergey
  */
+
+@DefaultUrl("https://www.spotify.com/ca-en/signup/")
 public class SignUpPage {
 
 
@@ -23,9 +32,9 @@ public class SignUpPage {
     private String monthDropDownOption = "//select[@id='register-dob-month']/option[text()='%s']";
     private By dayField = By.cssSelector("input#register-dob-day");
     private By yearField = By.cssSelector("input#register-dob-year");
-   private String sexRadioButton = "//li[@id='li-gender']/label[normalize-space()='%s']/input";
-   private By sexradioB=By.xpath("//li[@id='li-gender']");
-  //  private By sexRadioButton = By.cssSelector("li#li-gender");
+    private String sexRadioButton = "//li[@id='li-gender']/label[normalize-space()='%s']/input";
+    private By sexradioB = By.xpath("//li[@id='li-gender']");
+    //  private By sexRadioButton = By.cssSelector("li#li-gender");
 
     private By shareCheckBox = By.cssSelector("input#register-thirdparty");
     private By agreeCheckBox = By.cssSelector("input#register-terms");
@@ -36,7 +45,6 @@ public class SignUpPage {
     private String errorText = "//label[@class=\"has-error\" and text()=\"%s\"]";
 
     public SignUpPage open() {
-
         Selenide.open("/");
         return this;
     }
@@ -44,7 +52,7 @@ public class SignUpPage {
 
     public SignUpPage typeEmail(String email) {
         $(emailField).setValue(email);
-      //  $(emailField).findAll(email);
+        //  $(emailField).findAll(email);
         return this;
     }
 
@@ -82,11 +90,11 @@ public class SignUpPage {
     }
 
     public SignUpPage setSex(String sex) {
-$(sexradioB).find(Selectors.withText(sex)).click();
-      //  $(sexRadioButton).selectRadio(value);
+        $(sexradioB).find(Selectors.withText(sex)).click();
+        //  $(sexRadioButton).selectRadio(value);
 
 
-     //  $(xpath(format(sexRadioButton, value))).click();
+        //  $(xpath(format(sexRadioButton, value))).click();
         return this;
     }
 
@@ -112,9 +120,8 @@ $(sexradioB).find(Selectors.withText(sex)).click();
 
     public void clickSignUpButton() {
 
-    //    $(registerButton).waitWhile(Condition.visible,5000);
+        //    $(registerButton).waitWhile(Condition.visible,5000);
         $(registerButton).click();
-
 
 
     }
