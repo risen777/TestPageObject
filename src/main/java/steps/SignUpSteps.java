@@ -9,7 +9,7 @@ import pages.SignUpPage;
  */
 public class SignUpSteps {
 
-    SignUpPage page;
+    SignUpPage page = new SignUpPage();
 
     @Step
     public void open_signup_page(){
